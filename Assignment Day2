@@ -1,0 +1,324 @@
+                                                        Assignment 2
+                                                        
+*************************************************************************************************************************************************************************
+Q16.	Write a program to print table of any entered number using loop.
+
+Answer :- 
+
+import java.util.*;
+
+class Q16
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the Number :- ");
+		int num = sc.nextInt();
+		System.out.println("Table of "+num+" is :- ");
+		for(int i=1 ; i<=10 ; i++)
+		{
+			System.out.println(num+" x "+i+" = "+(num*i));
+		}
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q17.	Write a program to reverse a given number.
+
+Answer :- 
+
+import java.util.*;
+
+class Q17
+{
+	public static void main(String args[])
+	{
+		int rev = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a Number :- ");
+		int num = sc.nextInt();
+		System.out.println("The Enter Number is :- "+num);
+		while(num != 0)
+		{
+			int rem = num % 10;
+            rev = rev * 10 + rem;
+			//num = num / 10;
+			num /= 10;
+		}
+		System.out.println("The Reverse Number is :- "+rev);
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q18.	Program to check whether number is prime or not.
+
+Answer :- 
+
+import java.util.*;
+
+class Q18
+{
+	public static void main(String args[])
+	{
+		int count = 0, flage = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the Number :- ");
+		int num = sc.nextInt();
+		count = num/2;
+		if( num == 0 || num == 1 )
+		{
+			System.out.println(num+" is Not Prime.");
+		}
+		else
+		{
+			for(int i=2 ; i<=count ; i++)
+			{
+				if((num % i) == 0)
+				{
+					System.out.println(num+" is Not Prime.");
+					flage = 1;
+					break;
+				}
+			}
+		}
+		if(flage == 0)
+		{
+			System.out.println(num+" is Prime.");
+		}
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q19.	Calculate  series : 12+22+32+42+.........+n2
+
+Answer :- 
+
+import java.util.*;
+
+class Q19
+{
+	public static void main(String args[])
+	{
+		int sum = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the Number :- ");
+		int num = sc.nextInt();
+		for(int i=1 ; i<=num ; i++)
+		{
+			sum = sum + (i*10) + 2;
+			if( i != num )
+			{
+				System.out.print(i+"2+");
+			}
+			else
+			{
+				System.out.print(i+"2 = "+sum);
+			}
+			
+		}
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q20.	Print all prime numbers between two given numbers. [ break continue ]
+
+Answer :- 
+
+import java.util.*;
+
+class Q20
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter The Start Number :- ");
+		int start = sc.nextInt();
+		System.out.print("Enter The End Number :- ");
+		int end = sc.nextInt();
+		
+        while( start < end ) 
+		{
+            boolean flage = false;
+
+            for(int i = 2; i <= start/2; ++i) 
+			{
+                if(start % i == 0) 
+				{
+                    flage = true;
+                    break;
+                }
+            }
+
+            if ( !flage && start != 0 && start != 1 )
+                System.out.print(start + " ");
+
+            ++start;
+        }
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q21.	Program to show sum and average of 10 element array. Accept array elements from user. 
+
+Answer :- 
+
+import java.util.*;
+
+class Q21
+{
+	public static void main(String args[])
+	{
+		int sum = 0;
+		Scanner sc = new Scanner(System.in);
+		int arr[] = new int[10];
+		for(int i=0 ; i<10 ; i++)
+		{
+			System.out.print("Element "+(i+1)+" :- ");
+			arr[i] = sc.nextInt();
+		}
+		for(int i=0 ; i<10 ; i++)
+		{
+			sum = sum + arr[i];
+		}
+		System.out.println("Sum :- "+sum);
+		double avg = (sum/10);
+		System.out.println("Average :- "+avg);
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q22.	Sort a ten element array in descending order.
+
+Answer :- 
+import java.util.*;
+
+class Q22
+{
+	public static void main(String args[])
+	{
+		int temp = 0;
+		Scanner sc = new Scanner(System.in);
+		int arr[] = new int[10];
+		for(int i=0 ; i<10 ; i++ )
+		{
+			System.out.print("Element "+(i+1)+" :- ");
+			arr[i] = sc.nextInt();
+		}
+		for (int i = 0; i < 10; i++ ) 
+        {
+            for (int j = i + 1; j < 10; j++) 
+            {
+                if (arr[i] < arr[j]) 
+                {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+		System.out.println("Sorted Array Elements are :- ");
+		for(int i=0 ; i<10 ; i++ )
+		{
+			System.out.println("Element "+(i+1)+" :- "+arr[i]);
+		}
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q23.	Write a program to reverse the array elements.
+
+Answer :- 
+
+import java.util.*;
+
+class Q23
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		int arr[] = new int[10];
+		for(int i=0 ; i<10 ; i++ )
+		{
+			System.out.print("Element "+(i+1)+" :- ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("Reverse Array is :- ");
+		for(int i=0 , j=arr.length-1 ; i<10 ; i++ , j-- )
+		{
+			System.out.println("Element "+(i+1)+" :- "+arr[j]);
+		}
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q24.	Write a program to search an element in the array.
+
+Answer :- 
+import java.util.*;
+
+class Q24
+{
+	public static void main(String args[])
+	{
+		int flage = 0;
+		Scanner sc = new Scanner(System.in);
+		int arr[] = new int[8];
+		for(int i=0 ; i<8 ; i++ )
+		{
+			System.out.print("Element "+(i+1)+" :- ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.print("Enter The Element to Be Searched :- ");
+		int search = sc.nextInt();
+		for(int i=0 ; i<8 ; i++)
+		{
+			if(arr[i] == search)
+			{
+				System.out.println("Element "+search+" found at "+(i+1)+" Position.");
+				flage = 1;
+			}
+		}
+		if(flage != 1)
+		{
+			System.out.println("Element "+search+" Not found.");
+		}
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q25.	Write the program to find the sum of even elements and sum of odd elements present in the	array of integer type.
+
+Answer :- 
+import java.util.*;
+
+class Q25
+{
+	public static void main(String args[])
+	{
+		int even = 0, odd = 0;
+		Scanner sc = new Scanner(System.in);
+		int arr[] = new int[10];
+		for(int i=0 ; i<10 ; i++ )
+		{
+			System.out.print("Element "+(i+1)+" :- ");
+			arr[i] = sc.nextInt();
+		}
+		for(int i=0 ; i<10 ; i++ )
+		{
+			if( (arr[i] % 2) == 0 )
+			{
+				even = even + arr[i];
+			}
+			else
+			{
+				odd = odd + arr[i];
+			}
+		}
+		System.out.println("Sum Of Even Numbers is :- "+even);
+		System.out.println("Sum Of Odd Numbers is :- "+odd);
+	}
+}
+
+*************************************************************************************************************************************************************************
+
+
