@@ -1,0 +1,255 @@
+                                                Assignment 3
+                                                
+*************************************************************************************************************************************************************************
+Q26.	Create an 26.	array of 17 elements in 5 rows.  And calculate sum of all elements.
+
+Answer :- 
+
+import java.util.*;
+
+class Q26
+{
+	public static void main(String args[])
+	{
+		int a[] = {1,2,3,4};
+		int b[] = {5,6,7,8};
+		int c[] = {9,10,11,12};
+		int d[] = {13,14,15};
+		int e[] = {16,17};
+		int arr[][] = new int[5][];
+		arr[0] = a;
+		arr[1] = b;
+		arr[2] = c;
+		arr[3] = d;
+		arr[4] = e;
+		
+		int sum = 0;
+		for(int ar[] : arr )
+		{
+			for(int x : ar )
+			{
+				sum = sum + x;
+			}
+		}
+		System.out.println(sum);
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q27.	Write a program to fine the smallest and greatest number present in the 27.	array of integer type.
+
+Answer :- 
+
+import java.util.*;
+
+class Q27
+{
+	public static void main(String args[])
+	{
+		int arr[] = {4,2,3,1,5};
+		
+		for(int i=0; i<arr.length-1; i++)
+		{
+			for(int j=1; j<arr.length-1; j++)
+			{
+				if(arr[i] > arr[j])
+				{
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		
+		System.out.println("Greatest Element in Array is :- "+arr[arr.length-1]);
+		System.out.println("Smallest Element in Array is :- "+arr[0]);
+		
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q28. Initialize one String type of array and print the elements using for each loop.
+
+Answer :- 
+
+import java.util.*;
+
+class Q28
+{
+	public static void main(String args[])
+	{
+		String arr[] = {"Red","Blue","Green"};
+		
+		for(String a : arr)
+		{
+			System.out.println(a);
+		}
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q29.	Write a program to print the total number of one-D arrays in a 29.	two-D array and the number of elements in every one-D array present in the 29.	two-D arrays.
+
+Answer :- 
+
+import java.util.*;
+
+class Q29
+{
+	public static void main(String args[])
+	{
+		int[] arr[] = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15},{16,17}};
+		
+		int count = 0;
+		
+		for(int i=0; i<arr.length; i++)
+		{	
+			count++;
+			int count1 = 0;
+			for(int j=0; j<arr[i].length; j++)
+			{
+				count1++;
+			}
+			System.out.println((i+1)+" Sub Array :- "+count1);
+		}
+		System.out.println("The Total No of Sub Array in 2D Array is :- "+count);
+	
+		/*for(int ar[] : arr)
+		{	
+			count++;
+			int count1 = 0;
+			int x = ar[][];
+			for(int y : ar)
+			{
+				count1++;
+			}
+			System.out.println(x+" Sub Array :- "+count1);
+		}
+		System.out.println(count);*/
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q30.	Create an integer type 30.	2-D array of 30.	size [3X3]. Take the elements from the user and then calculate the sum of the elements present in the 30.	diagonal.
+
+Answer :- 
+
+import java.util.*;
+
+class Q30
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		int row = 3, col = 3;
+		int[] arr[] = new int[row][col];
+		
+		for(int i=0; i<row; i++)
+		{
+			for(int j=0; j<col; j++)
+			{
+			System.out.print("Enter arr["+i+"]["+j+"] = ");
+				arr[i][j] = sc.nextInt();
+			}
+		}
+		
+		int sum = 0;
+		
+		for(int i=0; i<row; i++)
+		{
+			for(int j=0; j<col; j++)
+			{
+				if(i == j)
+				{
+					sum = sum + arr[i][j];
+				}
+			}
+		}
+		System.out.println("The Total of All Diagonal Elements in Array is :- "+sum);
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q31.	Create a 31.	class Student with 2 data members rno and name. Create one method setData() that takes roll number and student name as parameter and stores them in data members rno and name. Create one more method showData() to print the data member values. Create another 31.	class ( main 31.	class) StudentDemo that creates Student class object and calls setData() and showData() methods.
+
+Answer :- 
+
+import java.util.*;
+
+class Method
+{
+	private int rno;
+	private String name;
+	
+	void SetData(int rno, String name)
+	{
+		this.rno = rno;
+		this.name = name;
+	}
+	
+	void ShowData()
+	{
+		System.out.println("Roll No :- "+rno);
+		System.out.println("Name :- "+name);
+	}
+}
+
+class Q31
+{
+	public static void main(String args[])
+	{
+		Method m1 = new Method();
+		m1.SetData(129,"Udit");
+		m1.ShowData();
+	}
+}
+
+*************************************************************************************************************************************************************************
+Q32.	Modify the above program (no. 30) to count the no of Student 32.	objects created. [ In this program 32.	static variable is required ]
+
+Answer :- 
+
+import java.util.*;
+
+class Method
+{
+	private int rno;
+	private String name;
+	private static int count = 0;
+	
+	void SetData(int rno, String name)
+	{
+		this.rno = rno;
+		this.name = name;
+		count++;
+	}
+	
+	void ShowData()
+	{
+		System.out.println("Roll No :- "+rno);
+		System.out.println("Name :- "+name);
+	}
+	
+	void ShowTotal()
+	{
+		System.out.println("Total No of Students are :- "+count);
+	}
+}
+
+class Q32
+{
+	public static void main(String args[])
+	{
+		Method m1 = new Method();
+		m1.SetData(129,"Udit");
+		m1.ShowData();
+		m1.SetData(185,"Rushi");
+		m1.ShowData();
+		m1.SetData(192,"Ravi");
+		m1.ShowData();
+		m1.ShowTotal();
+	}
+}
+
+*************************************************************************************************************************************************************************
+
