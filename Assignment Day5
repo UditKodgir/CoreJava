@@ -1,0 +1,228 @@
+                                                                    Assignment 5
+
+*************************************************************************************************************************************************************************
+44.  Create three classes
+-       Faculty with two data members facultyId and salary and two methods, one intput() method for accepting facultyId as input and another printSalary() to print salary.
+-       FullTimeFaculty that inherits class Faculty with two data members’ basicSalary and allowance. Override input() method in this class that calls super class inut() method and accepts basicSalary and allowance as input. Salary should not be accepted as input but should be calculated using formula (basicSalary + allowance)
+-       PartTimeFaculty that inherits class Faculty with two data members’ workingHours, ratePerHour. Override input() method in this class that calls super class inut() method and accepts workingHours and ratePerHour as input. Salary should not be accepted as input but should be calculated using formula ( workingHour * ratePerHour )
+
+Answer :- 
+
+import java.util.*;
+
+class Faculty
+{
+	private int facultyId;
+	private double salary;
+	
+	void input(int facultyId)
+	{
+		this.facultyId = facultyId;
+	}
+	
+	void setSalary(double salary)
+	{
+		this.salary = salary;
+	}
+	
+	void printSalary()
+	{
+		System.out.println("Faculty Id :- "+facultyId+" Salary :- "+salary);
+	}
+}
+
+class fullTimeFaculty extends Faculty
+{
+	private double basicSalary;
+	private double allowance;
+	
+	fullTimeFaculty()
+	{
+		basicSalary = 0;
+		allowance = 0;
+	}
+	
+	void input(int facultyId, double basicSalary, double allowance)
+	{
+		input(facultyId);
+		this.basicSalary = basicSalary;
+		this.allowance = allowance;
+		setSalary(basicSalary + allowance);
+	}
+}
+
+class partTimeFaculty extends Faculty
+{
+	private int workingHour;
+	private double ratePerHour;
+	
+	partTimeFaculty()
+	{
+		workingHour = 0;
+		ratePerHour = 0;
+	}
+	
+	void input(int facultyId, int workingHour, double ratePerHour)
+	{
+		input(facultyId);
+		this.workingHour = workingHour;
+		this.ratePerHour = ratePerHour;
+		setSalary(workingHour * ratePerHour);
+	}
+}
+
+class Q44
+{
+	public static void main(String args[])
+	{
+		fullTimeFaculty f = new fullTimeFaculty();
+		partTimeFaculty p = new partTimeFaculty();
+		
+		f.input(1,1000,100);
+		p.input(2,10,100);
+		
+		f.printSalary();
+		p.printSalary();
+	}
+}
+
+*************************************************************************************************************************************************************************
+45.  Create a class Student with two members : rollno and percentage. Create default and parameterized constructors. Create method show() to display information. Create another class CollegeStudent inherits Student class. Add a new member semester to it. Create default and parameterized constructors. Also override show() method that calls super class show() method and displays semester. Create another class SchoolStudent inherits Student class. Add a new member className(eg 12th ,10th etc.) to it. Create default and parameterized constructors. Also override show() method that calls super class show() method and displays className. Create a class( say Demo) with main method that carries out the operation of the project : -- has array to store objects of any class(Student,  CollegeStudent or SchoolStudent) --create two CollegeStudent  and three SchoolStudent objects and store them inside the array -- display all records from the array -- search record on the basic of rollno and check given rollno is of SchoolStudent or of CollegeStudent. --count how many students are having A grade, if for A grade percentage >75.
+
+Answer :- 
+
+import java.util.*;
+
+class Student
+{
+	int roll;
+	double percentage;
+	
+	Student()
+	{
+		roll = 0;
+		percentage = 0;
+	}
+	
+	Student(int roll, double percentage)
+	{
+		this.percentage = percentage;
+		this.roll = roll;
+	}
+	
+	public void show()
+	{
+		System.out.println("Roll :- "+roll);
+		System.out.println("Percentage :- "+percentage);
+	}
+}
+
+class collegeStudent extends Student
+{
+	int semester;
+	
+	collegeStudent()
+	{
+		semester = 0;
+	}
+	
+	collegeStudent(int roll, double percentage, int semester)
+	{
+		this.percentage = percentage;
+		this.roll = roll;
+		this.semester = semester;
+	}
+	
+	public void show()
+	{
+		super.show();
+		System.out.println("Semester :- "+semester);
+	}
+}
+
+class schoolStudent extends Student
+{
+	int className;
+	
+	schoolStudent()
+	{
+		className = 0;
+	}
+	
+	schoolStudent(int roll, double percentage, int className)
+	{
+		this.percentage = percentage;
+		this.roll = roll;
+		this.className = className;
+	}
+	
+	public void show()
+	{
+		super.show();
+		System.out.println("Class Name :- "+className);
+	}
+}
+
+class Q45
+{
+	public static void main(String args[])
+	{
+		Student arr[] = { new collegeStudent(1,40,3),
+		new collegeStudent(2,50,4), 
+		new schoolStudent(3,60,7),
+		new schoolStudent(4,70,8),
+		new schoolStudent(5,80,9)};
+		
+		for(int i=0; i<arr.length; i++)
+		{
+			arr[i].show();
+		}
+		
+		int rollno = 2;
+		
+		for(int i=0; i<arr.length; i++)
+		{
+			int a = arr[i].roll;
+			if(a == rollno)
+			{
+				
+				if(arr[i] instanceof collegeStudent)
+				{
+					System.out.println("This is College Student with Details:- ");
+				}
+				else
+				{
+					System.out.println("This is School Student with Details:- ");
+				}
+				
+				arr[i].show();
+			}
+			
+		}
+		
+		int count = 0;
+		
+		for(int i=0; i<arr.length; i++)
+		{
+			if(arr[i].percentage > 75)
+			{
+				count++;
+			}
+		}
+		System.out.println("There are total "+count+" Student with Grade A.");
+	}
+}
+
+*************************************************************************************************************************************************************************
+46.  Create a program to demonstrate the use of instanceof operator or secure reference down casting.
+
+Answer :- 
+
+
+*************************************************************************************************************************************************************************
+47.  Create a program to demonstrate constructor chaining.
+
+Answer :- 
+
+
+*************************************************************************************************************************************************************************
