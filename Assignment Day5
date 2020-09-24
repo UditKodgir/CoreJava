@@ -218,11 +218,132 @@ class Q45
 
 Answer :- 
 
+import java.util.*;
+
+class Shape
+{
+	int len;
+	int height;
+	
+	void show()
+	{
+		System.out.println(" Length :- "+len+" Height :- "+height);
+	}
+	
+	Shape()
+	{}
+	
+	Shape(int len, int height)
+	{
+		this.len = len;
+		this.height = height;
+	}
+	
+	void Area()
+	{};
+}
+
+class Rect extends Shape
+{
+	void Area()
+	{
+		super.show();
+		System.out.println(" Area :- "+(len*height));
+	}
+	
+	void diagonal()
+	{
+		double a = Math.pow(len,2) + Math.pow(height,2);
+		System.out.println(" Diagonal :- "+(Math.sqrt(a)));
+	}
+	
+	Rect()
+	{}
+	
+	Rect(int len, int height)
+	{
+		super(len,height);
+	}
+}
+
+class Triangle extends Shape
+{
+	void Area()
+	{
+		super.show();
+		System.out.println(" Area of circle :- "+(0.5*len*height));
+	}
+	
+	Triangle()
+	{}
+	
+	Triangle(int len, int height)
+	{
+		super(len,height);
+	}
+}
+
+class Q46
+{
+	public static void main(String args[])
+	{
+		Shape arr[] = { new Rect(30,40), new Triangle(10,20)};
+		
+		arr[0].show();
+		
+		Rect r = (Rect) arr[0];
+		r.diagonal();
+		
+		arr[1].Area();
+	}
+}
 
 *************************************************************************************************************************************************************************
 47.  Create a program to demonstrate constructor chaining.
 
 Answer :- 
 
+import java.util.*;
+
+class A //ConstructorChaining
+{
+	int a;
+	
+	A()
+	{
+		System.out.println("No Arguments Class A.");
+	}
+	
+	A(int a)
+	{
+		System.out.println("Paramenter Class A.");
+	}
+}
+
+class B extends A
+{
+	int b;
+	
+	B()
+	{
+		super();
+		System.out.println("No Arguments Class B.");
+	}
+	
+	B(int b)
+	{
+		super(b);
+		System.out.println("Paramenter Class B.");
+	}
+}
+
+class Q47
+{
+	public static void main(String args[])
+	{
+		B b1 = new B();
+		B b2 = new B(10);
+	}
+}
 
 *************************************************************************************************************************************************************************
