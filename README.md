@@ -7,5 +7,5 @@
 ## Assignment 6 :- Q48 to Q49
 ## Assignment 7 :- Q50 to Q52
 ## Assignment 8 :- Q53 to Q59
-## Assignment 9 :- Q60 to Q63
-## Assignment 10 :- Q64 to Q67
+## Assignment 9 :- Q60 to Q62
+## Assignment 10 :- Q63 to Q67
