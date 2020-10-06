@@ -5,3 +5,7 @@
 ## Assignment 4 :- Q33 to Q43
 ## Assignment 5 :- Q44 to Q47
 ## Assignment 6 :- Q48 to Q49
+## Assignment 7 :- Q50 to Q52
+## Assignment 8 :- Q53 to Q59
+## Assignment 9 :- Q60 to Q63
+## Assignment 10 :- Q64 to Q67
