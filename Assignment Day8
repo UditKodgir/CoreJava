@@ -1,0 +1,176 @@
+                                                                Assignment 8
+
+
+***********************************************************************************************************************************************************************
+Q.53 Input data exactly in the following format, and print sum of all integer values. “67, 89, 23, 67, 12, 55, 66”.   (Hint use String class split method and Integer class parseInt method) .
+
+Answer :- 
+
+public class Q53 {
+
+	public static void main(String[] args) {
+		String s[]= {"1","2","3","4","5","6","7"};
+		double sum=0;
+		for(String ss:s) {
+			int a=Integer.parseInt(ss);
+			sum+=a;
+		}
+		System.out.println("Sum of Integers are:"+sum);
+	}
+
+}
+
+***********************************************************************************************************************************************************************
+Q.54	Write a program to reverse the given String.
+
+Answer :- 
+
+public class Q54 {
+
+	public static void main(String[] args) {
+		String str="Shantanu";
+		/*1st methodchar str1[]=str.toCharArray();
+		for(int i=str1.length-1;i>=0;i--) {
+			System.out.print(str1[i]);
+		}*/
+		
+	/*2nd method	StringBuilder s=new StringBuilder();
+		s.append(str);
+		s=s.reverse();
+		System.out.print(s);*/
+	StringBuffer ss=new StringBuffer(str);
+	ss.reverse();
+	System.out.print(ss);
+      
+}
+}
+
+***********************************************************************************************************************************************************************
+Q.55 Write a program to count no of words in the String.
+
+Answer :- 
+
+import java.util.Scanner;
+public class Q55 {
+	public static void main(String args[]) {
+		Scanner sc=new Scanner(System.in);
+  String str1="Shantanu Upase";
+  String str3=sc.nextLine();
+  String str2[]=str3.split(" ");
+  int i=str2.length;
+  System.out.print(i);
+}
+}
+
+***********************************************************************************************************************************************************************
+56.	Write a program to convert very first character of every word in uppercase in a String.
+
+Answer :- 
+
+import java.util.Scanner;
+public class Q56 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		StringBuffer s=new StringBuffer();
+		char ch=' ';
+		String str="rrrr gggg";
+		for(int i=0;i<str.length();i++) {
+			if(ch==' ' && str.charAt(i)!=' ') 
+				s.append(Character.toUpperCase(str.charAt(i)));
+		   else
+		                s.append(str.charAt(i)); 
+				ch=str.charAt(i);
+			
+		}
+		
+		System.out.print(s.toString().trim());
+	}
+
+}
+
+***********************************************************************************************************************************************************************
+Q.57	Write a program to reverse every word of the String.
+========================================================================
+
+Answer :- 
+
+import java.util.Scanner;
+public class Q57 {
+	public static void main(String args[]){
+	Scanner sc=new Scanner(System.in);
+	String str=sc.nextLine();
+	String reverceWord="";
+	String str1[]=str.split(" ");
+	
+	for(String ss:str1) {
+		StringBuilder ss1=new StringBuilder(ss);
+		ss1.reverse();
+		reverceWord+=ss1+" ";
+	}
+	System.out.print(reverceWord);
+	
+}
+}
+
+***********************************************************************************************************************************************************************
+58.	Store name of weekdays in an array (starting from “Sunday” at 0 index). Ask day position from user and print day name. Handle array index out of bound exception and give proper message if user enter day index outside range (0-6). 
+
+Answer :- 
+
+import java.util.Scanner;
+public class Q58 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str2[]= {"Sun","Tue","Wed","Thur","Fri","Sat","Mon"};
+		int a=sc.nextInt();
+		for(int i=0;i<str2.length;i++) {
+			if(i==(a-1)) {
+				System.out.print(str2[i]);
+				break;
+			}
+		}
+	}
+}
+***********************************************************************************************************************************************************************
+Q.59 59.	Create a class Voter(voterId, name, age) with parameterized constructor.  The parameterized constructor should throw a checked exception if age is less than 18 The message of exception is “invalid age for voter ” 
+
+Answer :-
+
+class Voter{
+	int voterId;
+	String vName;
+	int age;
+	
+	Voter(int voterId, String vName,int age ){
+		if(age<18) {
+			//System.out.println("Hello");
+			try {
+				throw new Exception("invalid age for voter");
+			} catch (Exception e) {
+				//e.printStackTrace();
+				System.out.println(e);
+			}
+		}
+		else {
+			//System.out.println("QQQQ");
+			this.age=age;
+			this.voterId=voterId;
+			this.vName=vName;
+		}	
+	}
+	public String display() {
+		return "Voter [voterId=" + voterId + ", vName=" + vName + ", age=" + age + "]";
+	}
+}
+
+public class Q59 {
+
+	public static void main(String[] args) {
+		Voter a = new Voter(1,"Aditya",12);
+		System.out.println(a.display());
+		Voter a1 = new Voter(1,"Aditya",22);
+		System.out.println(a.display());
+	}
+}
